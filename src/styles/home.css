@@ -1,0 +1,112 @@
+.home {
+    width: 100%;
+    align-items: center;
+    color: #3e497a;
+}
+
+.about-wrapper{
+    width: 100%;
+    margin: 0 auto;
+    background-color: #21325e;
+}
+  
+.about {
+    width: 100%;
+    margin: 0 auto;
+    max-width: 1200px;
+    height: calc(100vh - 170px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #f0f0f0;
+}
+
+.about h1 {
+    font-size: 80px;
+    color: #ffffff;
+    height: 50px;
+}
+
+.about .prompt {
+    width: 100%;
+    font-size: 30px;
+}
+.prompt svg {
+    font-size: 60px;
+    margin: 5px;
+    color: white;
+}
+
+.skills-wrapper{
+    width: 100%;
+    margin: 0 auto;
+    background-color: #f3f3f3;
+}
+
+.skills {
+    width: 100%;
+    margin: 0 auto;
+    height: calc(100vh);
+    max-width: 1200px;
+    font-size: 35px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.skills .holder-title{
+    margin: 0 auto;
+}
+
+.skills h1 {
+    margin: 0;
+    color: #3e497a;
+}
+
+
+.skills .list {
+    padding: 0px;
+    margin: 0 auto;
+    list-style: none;
+}
+
+.list span {
+    font-size: 20px;
+}
+@media screen and (max-width: 768px) {
+    .about{
+        box-sizing: border-box;
+        padding: 0px 10px;
+    }
+    .about h1 {
+      font-size: 47px;
+    }   
+    
+}
+
+@media only screen and (max-width: 480px) {
+    .about{
+        box-sizing: border-box;
+        padding: 0px 10px;
+    }
+    .about h1 {
+      font-size: 40px;
+    }   
+    .about .prompt {
+      margin-top: 10px;
+      font-size: 20px;
+      width: 80%;
+    }   
+    .skills {
+      text-align: center;
+    }
+    .list {
+      padding: 0;
+    }   
+    .skills h2 {
+      font-size: 30px;
+    }
+}
