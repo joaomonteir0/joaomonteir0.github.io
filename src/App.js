@@ -20,10 +20,10 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-base-100" data-theme={theme}>
+    <div className="min-h-screen flex flex-col bg-base-100" data-theme={theme}>
       <Router>
         <Navbar theme={theme} toggleTheme={toggleTheme} />
-        <main className="flex-grow">
+        <main className="flex-grow flex flex-col">
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path="/projects" element={<Projects />} />

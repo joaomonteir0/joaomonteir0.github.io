@@ -69,7 +69,7 @@ function Home() {
                   View My Work
                 </Link>
                 <a 
-                  href="/static/resume.pdf" 
+                  href="/resume.pdf" 
                   target="_blank"
                   rel="noreferrer"
                   className='btn btn-outline btn-lg gap-2'
