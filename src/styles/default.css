@@ -1,0 +1,47 @@
+.App{
+    text-align: center;
+}
+
+body{
+    padding: 0;
+    margin: 0;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #21325e;
+}
+
+.scroll-button{
+    width: fit-content;
+    height: fit-content;
+    margin: 0 auto;
+}
+
+.scroll-button svg{
+    margin-bottom: 20px;
+    font-size: 50px;
+    color: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+    transition: 0.3s all;
+    text-shadow: 0px 2px 5px black;
+}
+
+
+.scroll-button svg:hover{
+    color: rgb(255, 255, 255);
+}
+
+.scroll-button .blue {
+    color: #3e497a;
+}
+
+.scroll-button .blue:hover{
+    color: rgba(62, 73, 122, 0.70);
+}
+
+.scroll-button .margin-top{
+    margin-top: 10px;
+    margin-bottom: 0px;
+}
+
+.scroll-button .rotate{
+    transform: rotate(180deg);
+}
