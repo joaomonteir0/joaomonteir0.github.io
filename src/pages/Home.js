@@ -142,7 +142,7 @@ function Home() {
           </div>
 
           {/* Scroll indicator */}
-          <div className='absolute bottom-8 left-1/2 transform -translate-x-1/2'>
+          <div className='hidden lg:block absolute bottom-8 left-1/2 transform -translate-x-1/2'>
             <button 
               onClick={scrollToSkills}
               className='flex flex-col items-center gap-2 text-base-content/50 hover:text-primary transition-colors'
