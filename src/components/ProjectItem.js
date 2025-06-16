@@ -6,20 +6,36 @@ function ProjectItem({ image, name, description, technologies, githubLink, liveL
     <div className="card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105">
       <figure className="px-0 pt-0 bg-base-200 h-48 relative overflow-hidden group">
         {image ? (
-          <img src={image} alt={name} className="rounded-t-lg h-full w-full object-cover" />
+          <>
+            <img src={image} alt={name} className="rounded-t-lg h-full w-full object-cover" />
+            <div className="absolute inset-0 bg-gradient-to-t from-base-300/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+              {(liveLink || githubLink) && (
+                <a 
+                  href={liveLink || githubLink} 
+                  target="_blank" 
+                  rel="noreferrer"
+                  className="btn btn-primary btn-sm"
+                >
+                  {liveLink ? 'Visit Site' : 'View on GitHub'}
+                </a>
+              )}
+            </div>
+          </>
         ) : (
           <div className="w-full h-full flex flex-col items-center justify-center text-base-content/30">
             <FaGlobe className="text-6xl mb-2" />
             <p className="text-sm font-medium">{websiteUrl || name}</p>
             <div className="absolute inset-0 bg-gradient-to-t from-base-300/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-              <a 
-                href={liveLink} 
-                target="_blank" 
-                rel="noreferrer"
-                className="btn btn-primary btn-sm"
-              >
-                Visit Site
-              </a>
+              {liveLink && (
+                <a 
+                  href={liveLink} 
+                  target="_blank" 
+                  rel="noreferrer"
+                  className="btn btn-primary btn-sm"
+                >
+                  Visit Site
+                </a>
+              )}
             </div>
           </div>
         )}
