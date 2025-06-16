@@ -10,8 +10,17 @@ function Projects() {
 
   const projectList = [
     {
+      name: "Dine&Dash",
+      image: "/dinendash.png",
+      websiteUrl: null,
+      description: "A food delivery application with real-time order tracking and notifications. Built with React, FastAPI, RabbitMQ for message queuing, and Google API for location services.",
+      technologies: ["React", "Vite", "FastAPI", "RabbitMQ", "Google API"],
+      githubLink: "https://github.com/dinendash-egs",
+      liveLink: null
+    },
+    {
       name: "Maria Xica - Rooftop Bar",
-      image: null,
+      image: "/mariaxica.png",
       websiteUrl: "https://mariaxica.netlify.app/",
       description: "A modern web application for an upscale rooftop bar in Viseu. Features interactive menu display, reservation system integration, and social media connectivity.",
       technologies: ["React", "JavaScript", "Netlify", "SEO"],
@@ -20,7 +29,7 @@ function Projects() {
     },
     {
       name: "Cheers Menu - Digital Bar Menu",
-      image: null,
+      image: "/cheers.png",
       websiteUrl: "https://cheersmenu.netlify.app/",
       description: "A streamlined digital menu platform for a local bar in Viseu. Provides customers with quick access to menu items and business information through a clean, minimalist interface.",
       technologies: ["React", "JavaScript", "Responsive Design", "Netlify"],
@@ -29,7 +38,7 @@ function Projects() {
     },
     {
       name: "Portfolio Website",
-      image: null,
+      image: "/portfolio.png",
       websiteUrl: "https://joaomonteir0.github.io",
       description: "My personal portfolio website built with React and styled with TailwindCSS and DaisyUI. Features dark mode, smooth animations, and responsive design.",
       technologies: ["React", "TailwindCSS", "DaisyUI", "AOS"],
