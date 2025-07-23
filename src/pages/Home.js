@@ -46,7 +46,7 @@ function Home() {
                 I'm <span className='text-primary'>João</span>
                 <br />
                 <span className='text-3xl lg:text-5xl text-base-content/70'>
-                  Full-Stack Developer
+                  Software Engineer
                 </span>
               </h1>
 
@@ -55,8 +55,7 @@ function Home() {
                 data-aos="fade-up"
                 data-aos-delay="100"
               >
-                Crafting digital experiences with modern web technologies. 
-                Computer Science student at <span className='text-primary font-semibold'>Universidade de Aveiro</span>.
+                <span className='text-primary font-semibold'>Bachelor's degree in Computer Science and Engineering</span> and am currently pursuing an <span className='text-primary font-semibold'>MSc in Computer Engineering and Telematics</span> at Universidade de Aveiro.
               </p>
 
               <div 
@@ -132,7 +131,7 @@ function Home() {
                       </div>
                       <div>
                         <p className='text-sm text-base-content/60'>Specialized in</p>
-                        <p className='font-semibold'>Full-Stack Development</p>
+                        <p className='font-semibold'>Software Engineering</p>
                       </div>
                     </div>
                   </div>
@@ -141,18 +140,6 @@ function Home() {
             </div>
           </div>
 
-          {/* Scroll indicator */}
-          <div className='hidden lg:block absolute bottom-8 left-1/2 transform -translate-x-1/2'>
-            <button 
-              onClick={scrollToSkills}
-              className='flex flex-col items-center gap-2 text-base-content/50 hover:text-primary transition-colors'
-            >
-              <span className='text-sm'>Scroll to explore</span>
-              <div className='w-6 h-10 border-2 border-current rounded-full flex justify-center'>
-                <div className='w-1 h-3 bg-current rounded-full mt-2 animate-bounce'></div>
-              </div>
-            </button>
-          </div>
         </div>
       </section>
 
@@ -171,14 +158,14 @@ function Home() {
               className='text-4xl lg:text-5xl font-bold mb-4'
               data-aos="fade-up"
             >
-              Building Amazing Digital Products
+              Know more about what I've knowledge
             </h2>
             <p 
               className='text-lg text-base-content/60 max-w-2xl mx-auto'
               data-aos="fade-up"
               data-aos-delay="100"
             >
-              I specialize in creating modern web applications with cutting-edge technologies
+              These are the technologies and areas I work with
             </p>
           </div>
 

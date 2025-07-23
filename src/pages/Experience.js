@@ -56,49 +56,77 @@ function Experience() {
   ];
 
   return (
-    <div className='min-h-screen bg-gradient-to-b from-base-100 to-base-200 py-16'>
-      <div className='container mx-auto px-4'>
-        <h1 className='text-5xl font-bold text-center mb-16 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent'>
-          My Journey
-        </h1>
+    <div className='min-h-screen bg-base-100 py-24 px-6'>
+      <div className='max-w-6xl mx-auto'>
+        {/* Header */}
+        <div className='text-center mb-20'>
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 text-primary rounded-full mb-8 font-medium text-sm">
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            Timeline
+          </div>
+          
+          <h1 className='text-6xl font-bold mb-6 text-base-content'>
+            My Journey
+          </h1>
+          
+          <p className="text-xl text-base-content/60">
+            Key milestones and experiences
+          </p>
+        </div>
         
-        <VerticalTimeline lineColor='var(--p)'>
+        <VerticalTimeline lineColor='var(--fallback-p,oklch(var(--p)/1))'>
           {experiences.map((exp, index) => (
             <VerticalTimelineElement
               key={index}
-              className='vertical-timeline-element--education'
+              className='vertical-timeline-element--education [&_.vertical-timeline-element-date]:!text-base-content [&_.vertical-timeline-element-date]:!opacity-60'
               date={exp.date}
               iconStyle={{
-                background: exp.iconBg === "bg-primary" ? "hsl(var(--p))" : 
-                           exp.iconBg === "bg-secondary" ? "hsl(var(--s))" : 
-                           "hsl(var(--a))",
-                color: "#fff"
+                background: "var(--fallback-p,oklch(var(--p)/1))",
+                color: "var(--fallback-pc,oklch(var(--pc)/1))",
+                boxShadow: "0 0 0 4px var(--fallback-p,oklch(var(--p)/0.1))",
+                border: "none"
               }}
               icon={<exp.icon />}
               contentStyle={{
-                background: "hsl(var(--b2))",
-                color: "hsl(var(--bc))",
-                boxShadow: "0 3px 20px rgba(0, 0, 0, 0.2)"
+                background: "var(--fallback-b1,oklch(var(--b1)/1))",
+                color: "var(--fallback-bc,oklch(var(--bc)/1))",
+                boxShadow: "0 8px 32px var(--fallback-bc,oklch(var(--bc)/0.1))",
+                border: "1px solid var(--fallback-b3,oklch(var(--b3)/1))",
+                borderRadius: "16px",
+                padding: "24px"
               }}
               contentArrowStyle={{
-                borderRight: `7px solid hsl(var(--b2))`
+                borderRight: `7px solid var(--fallback-b1,oklch(var(--b1)/1))`
               }}
             >
-              <h3 className='text-xl font-bold mb-2'>{exp.title}</h3>
-              <p className='text-base-content/70 mb-3'>{exp.subtitle}</p>
+              <h3 className='text-2xl font-bold mb-3 text-base-content'>{exp.title}</h3>
+              <p className='text-base-content/70 mb-4 leading-relaxed'>{exp.subtitle}</p>
               {exp.link && (
                 <a 
                   href={exp.link.url} 
                   target="_blank" 
                   rel="noreferrer"
-                  className='btn btn-primary btn-sm'
+                  className='inline-flex items-center gap-2 px-4 py-2 bg-primary text-primary-content rounded-lg hover:bg-primary/90 transition-colors duration-200 font-medium text-sm'
                 >
                   {exp.link.text}
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
                 </a>
               )}
             </VerticalTimelineElement>
           ))}
         </VerticalTimeline>
+        
+        {/* Footer */}
+        <div className="text-center mt-20">
+          <div className="inline-flex items-center gap-3 px-8 py-4 bg-base-200 rounded-2xl">
+            <div className="w-3 h-3 bg-primary rounded-full animate-pulse"></div>
+            <span className="text-base-content/70 font-medium text-lg">The journey continues...</span>
+          </div>
+        </div>
       </div>
     </div>
   )

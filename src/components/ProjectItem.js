@@ -3,74 +3,85 @@ import { FaGithub, FaExternalLinkAlt, FaGlobe } from 'react-icons/fa'
 
 function ProjectItem({ image, name, description, technologies, githubLink, liveLink, websiteUrl }) {
   return (
-    <div className="card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105">
-      <figure className="px-0 pt-0 bg-base-200 h-48 relative overflow-hidden group">
+    <div className="group bg-base-100 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 overflow-hidden">
+      {/* Image Section */}
+      <div className="relative overflow-hidden bg-base-200 h-56">
         {image ? (
           <>
-            <img src={image} alt={name} className="rounded-t-lg h-full w-full object-cover" />
-            <div className="absolute inset-0 bg-gradient-to-t from-base-300/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-              {(liveLink || githubLink) && (
-                <a 
-                  href={liveLink || githubLink} 
-                  target="_blank" 
-                  rel="noreferrer"
-                  className="btn btn-primary btn-sm"
-                >
-                  {liveLink ? 'Visit Site' : 'View on GitHub'}
-                </a>
-              )}
-            </div>
+            <img 
+              src={image} 
+              alt={name} 
+              className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" 
+            />
+            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300"></div>
           </>
         ) : (
-          <div className="w-full h-full flex flex-col items-center justify-center text-base-content/30">
-            <FaGlobe className="text-6xl mb-2" />
+          <div className="w-full h-full flex flex-col items-center justify-center text-base-content/40">
+            <FaGlobe className="text-7xl mb-3" />
             <p className="text-sm font-medium">{websiteUrl || name}</p>
-            <div className="absolute inset-0 bg-gradient-to-t from-base-300/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-              {liveLink && (
-                <a 
-                  href={liveLink} 
-                  target="_blank" 
-                  rel="noreferrer"
-                  className="btn btn-primary btn-sm"
-                >
-                  Visit Site
-                </a>
-              )}
-            </div>
           </div>
         )}
-      </figure>
-      <div className="card-body">
-        <h2 className="card-title">{name}</h2>
-        <p className="text-base-content/70 text-sm">{description}</p>
-        <div className="flex flex-wrap gap-2 mt-2">
+        
+        {/* Live indicator */}
+        {liveLink && (
+          <div className="absolute top-4 right-4 flex items-center gap-2 px-3 py-1 bg-primary text-primary-content text-xs font-medium rounded-full">
+            <div className="w-2 h-2 bg-white rounded-full"></div>
+            Live
+          </div>
+        )}
+      </div>
+      
+      {/* Content Section */}
+      <div className="p-6">
+        <div className="flex items-start justify-between mb-3">
+          <h3 className="text-xl font-bold text-base-content group-hover:text-primary transition-colors duration-200">
+            {name}
+          </h3>
+        </div>
+        
+        <p className="text-base-content/70 text-sm leading-relaxed mb-5">
+          {description}
+        </p>
+        
+        {/* Technologies */}
+        <div className="flex flex-wrap gap-2 mb-6">
           {technologies && technologies.map((tech, index) => (
-            <span key={index} className="badge badge-primary badge-outline badge-sm">{tech}</span>
+            <span 
+              key={index} 
+              className="px-3 py-1 text-xs font-medium bg-primary/10 text-primary rounded-lg hover:bg-primary hover:text-primary-content transition-all duration-200 cursor-default"
+            >
+              {tech}
+            </span>
           ))}
         </div>
-        <div className="card-actions justify-end mt-4">
-          {githubLink && githubLink !== "#" && (
-            <a 
-              href={githubLink} 
-              target="_blank" 
-              rel="noreferrer"
-              className="btn btn-circle btn-ghost btn-sm tooltip tooltip-top"
-              data-tip="View Code"
-              aria-label="View GitHub repository"
-            >
-              <FaGithub className="text-xl" />
-            </a>
-          )}
+        
+        {/* Action Buttons */}
+        <div className="flex items-center justify-between pt-4">
+          <div className="flex gap-3">
+            {githubLink && githubLink !== "#" && (
+              <a 
+                href={githubLink} 
+                target="_blank" 
+                rel="noreferrer"
+                className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-base-content/70 hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200"
+                aria-label="View GitHub repository"
+              >
+                <FaGithub className="text-lg" />
+                Code
+              </a>
+            )}
+          </div>
+          
           {liveLink && liveLink !== "#" && (
             <a 
               href={liveLink} 
               target="_blank" 
               rel="noreferrer"
-              className="btn btn-circle btn-ghost btn-sm tooltip tooltip-top"
-              data-tip="Live Demo"
+              className="flex items-center gap-2 px-4 py-2 bg-primary text-primary-content text-sm font-medium rounded-lg hover:bg-primary/90 transition-colors duration-200"
               aria-label="View live demo"
             >
-              <FaExternalLinkAlt className="text-xl" />
+              Visit Site
+              <FaExternalLinkAlt className="text-sm" />
             </a>
           )}
         </div>

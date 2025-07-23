@@ -1,7 +1,7 @@
 import React from 'react';
 import { 
   SiPython, SiJavascript, SiTypescript, SiCplusplus, SiC, SiCsharp,
-  SiReact, SiTailwindcss, SiVite, SiJest, SiAngular,
+  SiReact, SiTailwindcss, SiVite, SiJest, SiAngular, SiThreedotjs,
   SiNodedotjs, SiFastapi, SiFlask, SiPhp,
   SiMongodb, SiMysql, SiDocker, SiGit, SiKubernetes
 } from 'react-icons/si';
@@ -20,6 +20,7 @@ function Technologies() {
     ],
     frontend: [
       { name: 'React JS', icon: SiReact, color: 'text-cyan-400' },
+      { name: 'Three.js', icon: SiThreedotjs, color: 'text-black' },
       { name: 'Angular', icon: SiAngular, color: 'text-red-600' },
       { name: 'TailwindCSS', icon: SiTailwindcss, color: 'text-cyan-500' },
       { name: 'Vite', icon: SiVite, color: 'text-purple-500' },
@@ -48,56 +49,46 @@ function Technologies() {
   };
 
   return (
-    <div className="min-h-screen bg-base-100 py-16 px-4">
-      <div className="max-w-7xl mx-auto">
+    <div className="min-h-screen bg-base-100 py-24 px-6">
+      <div className="max-w-6xl mx-auto">
+        {/* Header */}
         <div className="text-center mb-16">
-          <h1 className="text-5xl font-bold mb-4 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+          <h1 className="text-6xl font-bold mb-6 text-base-content">
             Technologies
           </h1>
-          <p className="text-xl text-base-content/70">The tools and technologies I work with</p>
+          <p className="text-xl text-base-content/60">
+            The tools I work with
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {/* Technologies Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
           {Object.entries(technologies).map(([category, techs]) => (
-            <div key={category} className="card bg-base-200 shadow-xl">
-              <div className="card-body">
-                <h2 className="card-title text-2xl mb-6 text-primary">
-                  {categoryTitles[category]}
-                </h2>
-                <div className="space-y-4">
-                  {techs.map((tech, index) => (
-                    <div 
-                      key={index} 
-                      className="flex items-center gap-4 p-3 rounded-lg bg-base-100 hover:shadow-md transition-all duration-300 hover:scale-105"
-                    >
-                      <tech.icon className={`text-3xl ${tech.color}`} />
-                      <span className="text-lg font-medium">{tech.name}</span>
-                    </div>
-                  ))}
-                </div>
+            <div key={category} className="bg-base-100 rounded-2xl shadow-lg p-6">
+              <h2 className="text-2xl font-bold text-primary mb-6">
+                {categoryTitles[category]}
+              </h2>
+              
+              <div className="space-y-3">
+                {techs.map((tech, index) => (
+                  <div 
+                    key={index} 
+                    className="flex items-center gap-4 p-3 rounded-xl bg-base-200 hover:bg-primary/10 hover:shadow-sm transition-all duration-200 group"
+                  >
+                    <tech.icon className={`text-2xl ${tech.color} group-hover:scale-105 transition-transform duration-200`} />
+                    <span className="text-base font-medium text-base-content">{tech.name}</span>
+                  </div>
+                ))}
               </div>
             </div>
           ))}
         </div>
 
-        <div className="mt-16 text-center">
-          <div className="stats stats-vertical lg:stats-horizontal shadow">
-            <div className="stat">
-              <div className="stat-title">Languages</div>
-              <div className="stat-value text-primary">{technologies.languages.length}</div>
-            </div>
-            <div className="stat">
-              <div className="stat-title">Front-end</div>
-              <div className="stat-value text-secondary">{technologies.frontend.length}</div>
-            </div>
-            <div className="stat">
-              <div className="stat-title">Back-end</div>
-              <div className="stat-value text-accent">{technologies.backend.length}</div>
-            </div>
-            <div className="stat">
-              <div className="stat-title">DevOps</div>
-              <div className="stat-value text-info">{technologies.devops.length}</div>
-            </div>
+        {/* Footer */}
+        <div className="text-center mt-20">
+          <div className="inline-flex items-center gap-3 px-8 py-4 bg-base-200 rounded-2xl">
+            <div className="w-3 h-3 bg-primary rounded-full animate-pulse"></div>
+            <span className="text-base-content/70 font-medium text-lg">Always learning new technologies</span>
           </div>
         </div>
       </div>
