@@ -10,6 +10,15 @@ function Projects() {
 
   const projectList = [
     {
+      name: "Rush Hour - AI Solver",
+      image: "/rush_hour.png",
+      websiteUrl: null,
+      description: "Artificial Intelligence project that solves the Rush Hour puzzle game using search algorithms. Implemented multiple search strategies including BFS, DFS, and A* with custom heuristics. Achieved a grade of 19.5/20.",
+      technologies: ["Python", "AI", "Search Algorithms", "Jupyter"],
+      githubLink: "https://github.com/joaomonteir0/IA-Final-Project-Rush-Hour",
+      liveLink: null
+    },
+    {
       name: "Procedural Terrain Generator",
       image: "/proceduralgen.png",
       websiteUrl: "https://proceduralgen.netlify.app/",
@@ -68,20 +77,20 @@ function Projects() {
   return (
     <div className="min-h-screen bg-base-100">
       {/* Hero Section */}
-      <div className="relative py-32 px-6 bg-gradient-to-b from-base-100 to-base-200/50">
+      <div className="relative py-20 md:py-32 px-6 bg-gradient-to-b from-base-100 to-base-200/50">
         <div className="max-w-4xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 text-primary rounded-full mb-8 font-medium text-sm" data-aos="fade-down">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 text-primary rounded-full mb-6 md:mb-8 font-medium text-sm" data-aos="fade-down">
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
             </svg>
             Portfolio
           </div>
-          
-          <h1 className="text-7xl font-bold mb-8 text-base-content" data-aos="fade-up">
+
+          <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold mb-6 md:mb-8 text-base-content" data-aos="fade-up">
             My Work
           </h1>
-          
-          <p className="text-2xl text-base-content/60 max-w-4xl mx-auto leading-relaxed" data-aos="fade-up" data-aos-delay="100">
+
+          <p className="text-lg sm:text-xl md:text-2xl text-base-content/60 max-w-4xl mx-auto leading-relaxed" data-aos="fade-up" data-aos-delay="100">
             A journey through learning, building, and growing
           </p>
         </div>
@@ -92,7 +101,7 @@ function Projects() {
         <div className="max-w-7xl mx-auto">
           
           {/* Projects Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 md:gap-8">
             {projectList.map((project, index) => (
               <div key={index} data-aos="fade-up" data-aos-delay={index * 150}>
                 <ProjectItem {...project} />

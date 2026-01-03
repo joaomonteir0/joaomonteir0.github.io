@@ -1,5 +1,5 @@
-import React, { useEffect, useRef } from 'react'
-import { FaLinkedin, FaGithub, FaCode, FaGraduationCap, FaRocket } from 'react-icons/fa'
+import React, { useEffect, useRef, useState } from 'react'
+import { FaLinkedin, FaGithub, FaCode, FaGraduationCap, FaRocket, FaEnvelope } from 'react-icons/fa'
 import { HiSparkles, HiLightningBolt } from 'react-icons/hi'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
@@ -7,14 +7,11 @@ import { Link } from 'react-router-dom'
 
 function Home() {
   const skillsRef = useRef();
-  
+  const [imageLoaded, setImageLoaded] = useState(false);
+
   useEffect(() => {
     AOS.init({duration: 800})
   }, []);
-
-  const scrollToSkills = () => {
-    skillsRef.current.scrollIntoView({ behavior: "smooth" });
-  };
 
   return (
     <div className='min-h-screen'>
@@ -39,13 +36,13 @@ function Home() {
                 <span className='text-sm font-medium'>Welcome to my digital space</span>
               </div>
 
-              <h1 
-                className='text-5xl lg:text-7xl font-bold mb-6'
+              <h1
+                className='text-4xl sm:text-5xl lg:text-7xl font-bold mb-6'
                 data-aos="fade-up"
               >
                 I'm <span className='text-primary'>João</span>
                 <br />
-                <span className='text-3xl lg:text-5xl text-base-content/70'>
+                <span className='text-2xl sm:text-3xl lg:text-5xl text-base-content/70'>
                   Software Engineer
                 </span>
               </h1>
@@ -58,44 +55,46 @@ function Home() {
                 <span className='text-primary font-semibold'>Bachelor's degree in Computer Science and Engineering</span> and am currently pursuing an <span className='text-primary font-semibold'>MSc in Computer Engineering and Telematics</span> at Universidade de Aveiro.
               </p>
 
-              <div 
+              <div
                 className='flex flex-wrap gap-4 justify-center lg:justify-start mb-8'
                 data-aos="fade-up"
                 data-aos-delay="200"
               >
-                <Link to="/projects" className='btn btn-primary btn-lg gap-2'>
+                <Link to="/projects" className='btn btn-primary btn-lg gap-2 hover:scale-105 transition-transform duration-300 shadow-lg hover:shadow-xl'>
                   <FaRocket />
                   View My Work
                 </Link>
-                <a 
-                  href="/resume.pdf" 
+                <a
+                  href="/resume.pdf"
                   target="_blank"
                   rel="noreferrer"
-                  className='btn btn-outline btn-lg gap-2'
+                  className='btn btn-outline btn-lg gap-2 hover:scale-105 transition-transform duration-300'
                 >
                   <FaGraduationCap />
                   Resume
                 </a>
               </div>
 
-              <div 
+              <div
                 className='flex gap-4 justify-center lg:justify-start'
                 data-aos="fade-up"
                 data-aos-delay="300"
               >
-                <a 
-                  href='https://github.com/joaomonteir0' 
-                  target="_blank" 
+                <a
+                  href='https://github.com/joaomonteir0'
+                  target="_blank"
                   rel="noreferrer"
-                  className='btn btn-circle btn-outline'
+                  className='btn btn-circle btn-outline hover:scale-110 hover:bg-primary hover:border-primary hover:text-primary-content transition-all duration-300'
+                  aria-label="GitHub Profile"
                 >
                   <FaGithub className='text-xl' />
                 </a>
-                <a 
-                  href='https://www.linkedin.com/in/jo%C3%A3o-monteiro-b4281a208/' 
-                  target="_blank" 
+                <a
+                  href='https://www.linkedin.com/in/jo%C3%A3o-monteiro-b4281a208/'
+                  target="_blank"
                   rel="noreferrer"
-                  className='btn btn-circle btn-outline'
+                  className='btn btn-circle btn-outline hover:scale-110 hover:bg-primary hover:border-primary hover:text-primary-content transition-all duration-300'
+                  aria-label="LinkedIn Profile"
                 >
                   <FaLinkedin className='text-xl' />
                 </a>
@@ -115,11 +114,17 @@ function Home() {
                 
                 {/* Main image container */}
                 <div className='relative'>
-                  <div className='w-80 h-80 lg:w-96 lg:h-96 rounded-3xl overflow-hidden shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-500'>
-                    <img 
-                      src="/joao_monteiro.jpg" 
-                      alt="João Monteiro" 
-                      className='w-full h-full object-cover'
+                  <div className='w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-3xl overflow-hidden shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-500 bg-base-200'>
+                    {!imageLoaded && (
+                      <div className='absolute inset-0 flex items-center justify-center'>
+                        <div className='loading loading-spinner loading-lg text-primary'></div>
+                      </div>
+                    )}
+                    <img
+                      src="/joao_monteiro.jpg"
+                      alt="João Monteiro"
+                      className={`w-full h-full object-cover transition-opacity duration-300 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
+                      onLoad={() => setImageLoaded(true)}
                     />
                   </div>
                   
@@ -143,6 +148,93 @@ function Home() {
         </div>
       </section>
 
+      {/* Contact Section */}
+      <section className='py-20 bg-base-100'>
+        <div className='container mx-auto px-6'>
+          <div className='max-w-4xl mx-auto text-center'>
+            <div
+              className='inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full mb-4'
+              data-aos="fade-down"
+            >
+              <FaEnvelope className='text-primary' />
+              <span className='text-sm font-medium'>Get in Touch</span>
+            </div>
+
+            <h2
+              className='text-3xl sm:text-4xl lg:text-5xl font-bold mb-6'
+              data-aos="fade-up"
+            >
+              Let's Work Together
+            </h2>
+
+            <p
+              className='text-lg text-base-content/60 mb-12 max-w-2xl mx-auto'
+              data-aos="fade-up"
+              data-aos-delay="100"
+            >
+              Feel free to reach out if you want to collaborate on a project, have a question, or just want to connect.
+            </p>
+
+            <div
+              className='grid grid-cols-1 md:grid-cols-3 gap-6'
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
+              <a
+                href='https://github.com/joaomonteir0'
+                target="_blank"
+                rel="noreferrer"
+                className='group card bg-base-200 hover:bg-primary/5 shadow-lg hover:shadow-xl transition-all duration-300 p-8'
+              >
+                <div className='flex flex-col items-center gap-4'>
+                  <div className='w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300'>
+                    <FaGithub className='text-3xl text-primary' />
+                  </div>
+                  <div>
+                    <h3 className='font-bold text-lg mb-1'>GitHub</h3>
+                    <p className='text-sm text-base-content/60'>Check out my code</p>
+                  </div>
+                </div>
+              </a>
+
+              <a
+                href='https://www.linkedin.com/in/jo%C3%A3o-monteiro-b4281a208/'
+                target="_blank"
+                rel="noreferrer"
+                className='group card bg-base-200 hover:bg-primary/5 shadow-lg hover:shadow-xl transition-all duration-300 p-8'
+              >
+                <div className='flex flex-col items-center gap-4'>
+                  <div className='w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300'>
+                    <FaLinkedin className='text-3xl text-primary' />
+                  </div>
+                  <div>
+                    <h3 className='font-bold text-lg mb-1'>LinkedIn</h3>
+                    <p className='text-sm text-base-content/60'>Let's connect</p>
+                  </div>
+                </div>
+              </a>
+
+              <a
+                href='/resume.pdf'
+                target="_blank"
+                rel="noreferrer"
+                className='group card bg-base-200 hover:bg-primary/5 shadow-lg hover:shadow-xl transition-all duration-300 p-8'
+              >
+                <div className='flex flex-col items-center gap-4'>
+                  <div className='w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300'>
+                    <FaGraduationCap className='text-3xl text-primary' />
+                  </div>
+                  <div>
+                    <h3 className='font-bold text-lg mb-1'>Resume</h3>
+                    <p className='text-sm text-base-content/60'>View my experience</p>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Skills Preview Section */}
       <section ref={skillsRef} className='py-20 bg-base-200'>
         <div className='container mx-auto px-6'>
@@ -158,7 +250,7 @@ function Home() {
               className='text-4xl lg:text-5xl font-bold mb-4'
               data-aos="fade-up"
             >
-              Know more about what I've knowledge
+              What I Know
             </h2>
             <p 
               className='text-lg text-base-content/60 max-w-2xl mx-auto'

@@ -1,9 +1,9 @@
 import React from 'react';
-import { 
+import {
   SiPython, SiJavascript, SiTypescript, SiCplusplus, SiC, SiCsharp,
   SiReact, SiTailwindcss, SiVite, SiJest, SiAngular, SiThreedotjs,
   SiNodedotjs, SiFastapi, SiFlask, SiPhp,
-  SiMongodb, SiMysql, SiDocker, SiGit, SiKubernetes
+  SiMongodb, SiMysql, SiDocker, SiGit, SiKubernetes, SiJupyter
 } from 'react-icons/si';
 import { FaJava } from 'react-icons/fa';
 
@@ -16,10 +16,12 @@ function Technologies() {
       { name: 'Java', icon: FaJava, color: 'text-red-600' },
       { name: 'C++', icon: SiCplusplus, color: 'text-blue-700' },
       { name: 'C', icon: SiC, color: 'text-gray-700' },
-      { name: 'C#', icon: SiCsharp, color: 'text-purple-600' }
+      { name: 'C#', icon: SiCsharp, color: 'text-purple-600' },
+      { name: 'Jupyter', icon: SiJupyter, color: 'text-orange-500' }
     ],
     frontend: [
       { name: 'React JS', icon: SiReact, color: 'text-cyan-400' },
+      { name: 'React Native', icon: SiReact, color: 'text-cyan-600' },
       { name: 'Three.js', icon: SiThreedotjs, color: 'text-black' },
       { name: 'Angular', icon: SiAngular, color: 'text-red-600' },
       { name: 'TailwindCSS', icon: SiTailwindcss, color: 'text-cyan-500' },
@@ -38,6 +40,11 @@ function Technologies() {
       { name: 'Docker', icon: SiDocker, color: 'text-blue-500' },
       { name: 'Kubernetes', icon: SiKubernetes, color: 'text-blue-600' },
       { name: 'Git', icon: SiGit, color: 'text-orange-600' }
+    ],
+    aitools: [
+      { name: 'Claude', icon: () => <span className="font-bold text-lg">C</span>, color: 'text-purple-600' },
+      { name: 'Gemini', icon: () => <span className="font-bold text-lg">G</span>, color: 'text-blue-500' },
+      { name: 'Lovable', icon: () => <span className="font-bold text-lg">L</span>, color: 'text-pink-500' }
     ]
   };
 
@@ -45,24 +52,25 @@ function Technologies() {
     languages: 'Languages',
     frontend: 'Front-end',
     backend: 'Back-end',
-    devops: 'DevOps'
+    devops: 'DevOps',
+    aitools: 'AI Tools'
   };
 
   return (
-    <div className="min-h-screen bg-base-100 py-24 px-6">
+    <div className="min-h-screen bg-base-100 py-16 md:py-24 px-6">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-16">
-          <h1 className="text-6xl font-bold mb-6 text-base-content">
+        <div className="text-center mb-12 md:mb-16">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 md:mb-6 text-base-content">
             Technologies
           </h1>
-          <p className="text-xl text-base-content/60">
+          <p className="text-lg md:text-xl text-base-content/60">
             The tools I work with
           </p>
         </div>
 
         {/* Technologies Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
           {Object.entries(technologies).map(([category, techs]) => (
             <div key={category} className="bg-base-100 rounded-2xl shadow-lg p-6">
               <h2 className="text-2xl font-bold text-primary mb-6">

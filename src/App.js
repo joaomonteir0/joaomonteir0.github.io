@@ -4,8 +4,10 @@ import Home from './pages/Home'
 import Projects from './pages/Projects'
 import Experience from './pages/Experience'
 import Technologies from './components/Technologies'
+import NotFound from './pages/NotFound'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer.js'
+import ScrollToTop from './components/ScrollToTop'
 
 function App() {
   const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light');
@@ -29,9 +31,11 @@ function App() {
             <Route path="/projects" element={<Projects />} />
             <Route path="/experience" element={<Experience />} />
             <Route path="/technologies" element={<Technologies />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
         <Footer />
+        <ScrollToTop />
       </Router>
     </div>
   );

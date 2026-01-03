@@ -1,10 +1,20 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { HiMenu, HiCode, HiBriefcase, HiChip, HiHome } from 'react-icons/hi'
 import { FaSun, FaMoon } from 'react-icons/fa'
 
 function Navbar({ theme, toggleTheme }) {
   const location = useLocation();
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const navItems = [
     { path: '/', label: 'Home', icon: HiHome },
@@ -14,7 +24,7 @@ function Navbar({ theme, toggleTheme }) {
   ];
 
   return (
-    <div className="navbar bg-base-200 shadow-lg sticky top-0 z-50">
+    <div className={`navbar bg-base-200 sticky top-0 z-50 transition-all duration-300 ${scrolled ? 'shadow-xl py-2' : 'shadow-lg py-0'}`}>
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">

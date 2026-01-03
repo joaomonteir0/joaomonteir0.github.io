@@ -1,17 +1,27 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { FaGithub, FaExternalLinkAlt, FaGlobe } from 'react-icons/fa'
 
 function ProjectItem({ image, name, description, technologies, githubLink, liveLink, websiteUrl }) {
+  const [imageLoaded, setImageLoaded] = useState(false);
+  const [imageError, setImageError] = useState(false);
+
   return (
     <div className="group bg-base-100 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 overflow-hidden">
       {/* Image Section */}
       <div className="relative overflow-hidden bg-base-200 h-56">
-        {image ? (
+        {image && !imageError ? (
           <>
-            <img 
-              src={image} 
-              alt={name} 
-              className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" 
+            {!imageLoaded && (
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="loading loading-spinner loading-lg text-primary"></div>
+              </div>
+            )}
+            <img
+              src={image}
+              alt={name}
+              className={`w-full h-full object-cover transition-all duration-300 group-hover:scale-105 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
+              onLoad={() => setImageLoaded(true)}
+              onError={() => setImageError(true)}
             />
             <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300"></div>
           </>

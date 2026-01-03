@@ -1,5 +1,5 @@
 import React from 'react'
-import { FaInstagram, FaFacebook, FaLinkedin, FaGithub, FaEnvelope, FaHeart } from 'react-icons/fa'
+import { FaInstagram, FaFacebook, FaLinkedin, FaGithub, FaHeart } from 'react-icons/fa'
 
 function Footer() {
   const socialLinks = [
